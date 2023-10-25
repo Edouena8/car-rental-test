@@ -1,3 +1,4 @@
+import { Routes, Route, NavLink } from 'react-router-dom';
 export const App = () => {
   return (
     <div
@@ -7,10 +8,17 @@ export const App = () => {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 40,
-        color: '#010101'
+        color: '#010101',
       }}
     >
-      React homework template
+      <ul>
+        <li>
+          <NavLink to="/">Home page</NavLink>
+        </li>
+      </ul>
+      <Routes>
+        <Route path='/' element={ <div>Home page</div>} />
+      </Routes>
     </div>
   );
 };
