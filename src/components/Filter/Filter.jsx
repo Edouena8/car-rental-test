@@ -105,6 +105,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
     setMileageMin('');
     setMileageMax('');
 
+    setFiltering(false);
     setShowBtn(true);
   };
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal } from '../Modal/Modal';
 import { CarDescription } from '../CarDescription/CarDescription';
 import {
@@ -9,6 +9,9 @@ import {
   ImgWrapper,
   Item,
 } from './CarItem.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavorite } from 'redux/favorite/favoriteSelector';
+import { addFavorite, removeFavorite } from 'redux/favorite/favoriteSlice';
 
 export const CarItem = ({ car }) => {
   const {
@@ -24,6 +27,8 @@ export const CarItem = ({ car }) => {
     functionalities,
   } = car;
 
+  const dispatch = useDispatch();
+  const favoriteCars = useSelector(selectFavorite);
   const [isShowModal, setIsShowModal] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -31,12 +36,25 @@ export const CarItem = ({ car }) => {
   const city = companyAddress[1];
   const country = companyAddress[2];
 
+  useEffect(() => {
+    if (favoriteCars.some(favCar => favCar.id === car.id)) {
+      setIsFavorite(true);
+    }
+  }, [car, favoriteCars]);
+
   const toggleModal = () => {
     setIsShowModal(prev => !prev);
   };
 
   const handleFavorite = () => {
+    
     setIsFavorite(!isFavorite);
+
+    if (favoriteCars.some(favCar => favCar.id === car.id)) {
+      dispatch(removeFavorite(car.id));
+    } else {
+      dispatch(addFavorite(car));
+    }
   };
 
   return (
