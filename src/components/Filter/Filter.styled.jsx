@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NumericFormat } from 'react-number-format';
 
-export const FilterWrap = styled.div`
+export const FilterWrap = styled.form`
   margin-bottom: 50px;
   margin: 0 auto;
   margin-bottom: 50px;

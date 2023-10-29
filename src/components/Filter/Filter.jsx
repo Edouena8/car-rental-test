@@ -10,8 +10,12 @@ import {
 } from './Filter.styled';
 import { SearchButton } from '../Buttons/SearchButton/SearchButton';
 import { ClearButton } from '../Buttons/ClearButton/ClearButton';
+import { useDispatch } from 'react-redux';
+import { setFilter } from 'redux/filter/filterSlice';
+import { fetchCarsFromFirstPage } from 'redux/cars/carsOperations';
 
-export const Filter = () => {
+export const Filter = ({ setShowBtn, setFiltering }) => {
+  const dispatch = useDispatch();
   const [brandValue, setBrandValue] = useState({
     value: '',
     label: 'Enter the text',
@@ -22,6 +26,7 @@ export const Filter = () => {
     label: 'To $',
   });
 
+  const [price, setPrice] = useState('');
   const [mileageMin, setMileageMin] = useState('');
   const [mileageMax, setMileageMax] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
@@ -52,6 +57,7 @@ export const Filter = () => {
       value: currentPrice,
       label: currentPrice,
     });
+    setPrice(selectedPrice.value);
   };
 
   const handleChangeMileage = evt => {
@@ -70,10 +76,22 @@ export const Filter = () => {
   };
 
   const handleSearchBtn = evt => {
-    console.log(evt);
+    evt.preventDefault();
+    const newFilterObj = {
+      make: brandValue.value.toLowerCase().trim(),
+      price: price || '500',
+      mileageMin: mileageMin.split(',').join('') || '0',
+      mileageMax: mileageMax.split(',').join('') || '99999',
+    };
+
+    dispatch(setFilter(newFilterObj));
+    setFiltering(true);
   };
 
-  const handleClearBtn = () => {
+  const handleClearBtn = evt => {
+    evt.preventDefault();
+    dispatch(fetchCarsFromFirstPage());
+
     setBrandValue({
       value: '',
       label: 'Enter the text',
@@ -86,6 +104,8 @@ export const Filter = () => {
 
     setMileageMin('');
     setMileageMax('');
+
+    setShowBtn(true);
   };
 
   return (

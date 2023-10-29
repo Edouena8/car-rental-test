@@ -10,7 +10,7 @@ export const fetchCarsFromFirstPage = createAsyncThunk(
       const resp = await axios.get('adverts?page=1&limit=12');
       return resp.data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
     }
   }
 );
@@ -22,7 +22,19 @@ export const fetchAllCars = createAsyncThunk(
       const resp = await axios.get(`adverts?page=${page}&limit=12`);
       return resp.data;
     } catch (error) {
-      return rejectWithValue(error);
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchAllCarsForFilter = createAsyncThunk(
+  'adverts/fetchAllCarsForFilter',
+  async (_, { rejectWithValue }) => {
+    try {
+      const resp = await axios.get('adverts');
+      return resp.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
   }
 );
