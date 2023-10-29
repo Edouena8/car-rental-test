@@ -1,8 +1,23 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
+import { ReactComponent as ActiveIcon } from '../../assets/icons/heart-active.svg';
+import { ReactComponent as NormalIcon } from '../../assets/icons/heart-normal.svg';
 
 export const Item = styled.li`
   width: 274px;
 `;
+
+export const ImgWrapper = styled.div`
+  position: relative;
+`;
+
+export const IconWrapper = styled.div`
+  position: absolute;
+  cursor: pointer;
+`;
+
+export const FavIcon = styled(ActiveIcon)``;
+
+export const Icon = styled(NormalIcon)``;
 
 export const Details = styled.p`
   font-size: 12px;

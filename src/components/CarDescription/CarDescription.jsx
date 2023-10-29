@@ -1,3 +1,5 @@
+import { CarRentalBtn } from "components/Buttons/CarRentalBtn/CarRentalBtn";
+
 export const CarDescription = ({ car, onClose }) => {
   const {
     id,
@@ -73,7 +75,7 @@ export const CarDescription = ({ car, onClose }) => {
         </li>
       </ul>
 
-      <button onClick={onClose}>Rental Car</button>
+      <CarRentalBtn/>
     </div>
   );
 };
