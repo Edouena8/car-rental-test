@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/car-rental-test/static/css/main.103ee1c6.css",
-    "main.js": "/car-rental-test/static/js/main.f0995518.js",
+    "main.js": "/car-rental-test/static/js/main.de2cc0c7.js",
     "static/js/415.c34a2937.chunk.js": "/car-rental-test/static/js/415.c34a2937.chunk.js",
-    "static/js/321.2cb9c97b.chunk.js": "/car-rental-test/static/js/321.2cb9c97b.chunk.js",
-    "static/js/395.f9709109.chunk.js": "/car-rental-test/static/js/395.f9709109.chunk.js",
+    "static/js/321.ab175509.chunk.js": "/car-rental-test/static/js/321.ab175509.chunk.js",
+    "static/js/395.bed7530a.chunk.js": "/car-rental-test/static/js/395.bed7530a.chunk.js",
     "static/js/750.5e8f43c2.chunk.js": "/car-rental-test/static/js/750.5e8f43c2.chunk.js",
     "static/js/80.8437ad3d.chunk.js": "/car-rental-test/static/js/80.8437ad3d.chunk.js",
     "index.html": "/car-rental-test/index.html",
@@ -12,15 +12,15 @@
     "static/media/heart-active.svg": "/car-rental-test/static/media/heart-active.623a3b874365d724c658e79a860ad4a4.svg",
     "static/media/x.svg": "/car-rental-test/static/media/x.f3cbdd58dc25ca7cbb3d242106b56fb9.svg",
     "main.103ee1c6.css.map": "/car-rental-test/static/css/main.103ee1c6.css.map",
-    "main.f0995518.js.map": "/car-rental-test/static/js/main.f0995518.js.map",
+    "main.de2cc0c7.js.map": "/car-rental-test/static/js/main.de2cc0c7.js.map",
     "415.c34a2937.chunk.js.map": "/car-rental-test/static/js/415.c34a2937.chunk.js.map",
-    "321.2cb9c97b.chunk.js.map": "/car-rental-test/static/js/321.2cb9c97b.chunk.js.map",
-    "395.f9709109.chunk.js.map": "/car-rental-test/static/js/395.f9709109.chunk.js.map",
+    "321.ab175509.chunk.js.map": "/car-rental-test/static/js/321.ab175509.chunk.js.map",
+    "395.bed7530a.chunk.js.map": "/car-rental-test/static/js/395.bed7530a.chunk.js.map",
     "750.5e8f43c2.chunk.js.map": "/car-rental-test/static/js/750.5e8f43c2.chunk.js.map",
     "80.8437ad3d.chunk.js.map": "/car-rental-test/static/js/80.8437ad3d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.103ee1c6.css",
-    "static/js/main.f0995518.js"
+    "static/js/main.de2cc0c7.js"
   ]
 }
