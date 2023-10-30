@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectFavorite } from 'redux/favorite/favoriteSelector';
 
 const Favorites = () => {
-  const favoriteCars = useSelector(selectFavorite);
+  const {favoriteCars} = useSelector(selectFavorite);
 
   return (
     <div>

@@ -28,7 +28,7 @@ export const CarItem = ({ car }) => {
   } = car;
 
   const dispatch = useDispatch();
-  const favoriteCars = useSelector(selectFavorite);
+  const {favoriteCars} = useSelector(selectFavorite);
   const [isShowModal, setIsShowModal] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -47,7 +47,6 @@ export const CarItem = ({ car }) => {
   };
 
   const handleFavorite = () => {
-    
     setIsFavorite(!isFavorite);
 
     if (favoriteCars.some(favCar => favCar.id === car.id)) {
