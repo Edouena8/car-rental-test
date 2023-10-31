@@ -1,4 +1,17 @@
-import { CarRentalBtn } from "components/Buttons/CarRentalBtn/CarRentalBtn";
+import { CarRentalBtn } from 'components/Buttons/CarRentalBtn/CarRentalBtn';
+import {
+  CarImg,
+  DetailsItem,
+  DetailsList,
+  DetailsWrap,
+  Span,
+  Title,
+  Descr,
+  Subtitle,
+  ConditionsList,
+  ConditionsItem,
+  ConditionsText,
+} from './CarDescription.styled';
 
 export const CarDescription = ({ car, onClose }) => {
   const {
@@ -28,54 +41,65 @@ export const CarDescription = ({ car, onClose }) => {
 
   return (
     <div>
-      <img src={img} alt={model} width="461" height="248" />
-      <h2>
-        {make} <span>{model}</span>, {year}
-      </h2>
-      <div>
-        <p>
-          {city} | {country} | Id: {id} | Year: {year} | Type: {type}
-        </p>
-        <p>
-          Fuel Consumption: {fuelConsumption} | Engine Size: {engineSize}
-        </p>
-      </div>
-      <p>{description}</p>
+      <CarImg src={img} alt={model} width="461" height="248" />
+      <Title>
+        {make} <Span>{model}</Span>, {year}
+      </Title>
+      <DetailsWrap>
+        <DetailsList>
+          <DetailsItem>{city}</DetailsItem>
+          <DetailsItem>{country}</DetailsItem>
+          <DetailsItem>Id: {id}</DetailsItem>
+          <DetailsItem>Year: {year}</DetailsItem>
+          <DetailsItem>Type: {type}</DetailsItem>
+        </DetailsList>
+        <DetailsList>
+          <DetailsItem>Fuel Consumption: {fuelConsumption}</DetailsItem>
+          <DetailsItem>Engine Size: {engineSize}</DetailsItem>
+        </DetailsList>
+      </DetailsWrap>
+      <Descr>{description}</Descr>
 
-      <p>Accessories and functionalities:</p>
-      <p>
-        {accessories[0]} | {accessories[1]} | {functionalities[0]}
-      </p>
-      <p>
-        {accessories[2]} | {functionalities[1]} | {functionalities[2]}
-      </p>
+      <Subtitle>Accessories and functionalities:</Subtitle>
+      <DetailsWrap>
+        <DetailsList>
+          <DetailsItem>{accessories[0]}</DetailsItem>
+          <DetailsItem>{accessories[1]}</DetailsItem>
+          <DetailsItem> {functionalities[0]}</DetailsItem>
+        </DetailsList>
+        <DetailsList>
+          <DetailsItem>{accessories[2]}</DetailsItem>
+          <DetailsItem>{functionalities[1]} </DetailsItem>
+          <DetailsItem>{functionalities[2]}</DetailsItem>
+        </DetailsList>
+      </DetailsWrap>
 
-      <h3>Rental Conditions: </h3>
-      <ul>
-        <li>
-          <p>
-            {minAge[0]}: <span>{minAge[1]}</span>
-          </p>
-        </li>
-        <li>
-          <p>{conditions[1]}</p>
-        </li>
-        <li>
-          <p>{conditions[2]}</p>
-        </li>
-        <li>
-          <p>
-            Mileage: <span>{mileageFormat}</span>
-          </p>
-        </li>
-        <li>
-          <p>
-            Price: <span>{rentalPrice}</span>
-          </p>
-        </li>
-      </ul>
+      <Subtitle>Rental Conditions: </Subtitle>
+      <ConditionsList>
+        <ConditionsItem>
+          <ConditionsText>
+            {minAge[0]}: <Span>{minAge[1]}</Span>
+          </ConditionsText>
+        </ConditionsItem>
+        <ConditionsItem>
+          <ConditionsText>{conditions[1]}</ConditionsText>
+        </ConditionsItem>
+        <ConditionsItem>
+          <ConditionsText>{conditions[2]}</ConditionsText>
+        </ConditionsItem>
+        <ConditionsItem>
+          <ConditionsText>
+            Mileage: <Span>{mileageFormat}</Span>
+          </ConditionsText>
+        </ConditionsItem>
+        <ConditionsItem>
+          <ConditionsText>
+            Price: <Span>{rentalPrice}</Span>
+          </ConditionsText>
+        </ConditionsItem>
+      </ConditionsList>
 
-      <CarRentalBtn/>
+      <CarRentalBtn />
     </div>
   );
 };

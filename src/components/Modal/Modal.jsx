@@ -1,6 +1,11 @@
 import { createPortal } from 'react-dom';
-import { Backdrop, ModalBtn, ModalContent } from './Modal.styled';
-import { ReactComponent as CloseModalIcon } from '../../assets/icons/x.svg';
+import {
+  Backdrop,
+  CloseModalIcon,
+  ModalBtn,
+  ModalContent,
+} from './Modal.styled';
+// import { ReactComponent as CloseModalIcon } from '../../assets/icons/x.svg';
 import { useEffect } from 'react';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -35,6 +40,6 @@ export const Modal = ({ onClose, children }) => {
         {children}
       </ModalContent>
     </Backdrop>,
-    modalRoot,
+    modalRoot
   );
 };

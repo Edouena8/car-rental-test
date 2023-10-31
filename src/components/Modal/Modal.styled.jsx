@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { ReactComponent as XModalIcon } from '../../assets/icons/x.svg';
 
 export const Backdrop = styled.div`
   position: fixed;
@@ -40,3 +41,11 @@ export const ModalBtn = styled.button`
   border: none;
 `;
 
+export const CloseModalIcon = styled(XModalIcon)`
+  stroke: #121417;
+  transition: stroke 250ms ease-in-out;
+
+  &:hover {
+    stroke: rgba(52, 112, 255, 1);
+  }
+`;
