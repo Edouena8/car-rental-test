@@ -1,13 +1,13 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Main } from './Layout.styled';
+import { Main, MainContainer } from './Layout.styled';
 import { AppBar } from 'components/AppBar/AppBar';
 import { Footer } from 'components/Footer/Footer';
 import { Loader } from 'components/Loader/Loader';
 
 export const Layout = () => {
   return (
-    <div>
+    <MainContainer>
       <AppBar />
 
       <Main>
@@ -17,6 +17,6 @@ export const Layout = () => {
       </Main>
 
       <Footer/>
-    </div>
+    </MainContainer>
   );
 };
