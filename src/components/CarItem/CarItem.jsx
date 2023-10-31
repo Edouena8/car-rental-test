@@ -2,16 +2,23 @@ import { useEffect, useState } from 'react';
 import { Modal } from '../Modal/Modal';
 import { CarDescription } from '../CarDescription/CarDescription';
 import {
-  Details,
+  CarImg,
+  // Details,
+  DetailsItem,
+  DetailsList,
+  DetailsWrap,
   FavIcon,
   Icon,
   IconWrapper,
   ImgWrapper,
   Item,
+  Span,
+  Title,
 } from './CarItem.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavorite } from 'redux/favorite/favoriteSelector';
 import { addFavorite, removeFavorite } from 'redux/favorite/favoriteSlice';
+import { LearnMoreBtn } from 'components/Buttons/LearnMoreBtn/LearnMoreBtn';
 
 export const CarItem = ({ car }) => {
   const {
@@ -28,7 +35,7 @@ export const CarItem = ({ car }) => {
   } = car;
 
   const dispatch = useDispatch();
-  const {favoriteCars} = useSelector(selectFavorite);
+  const { favoriteCars } = useSelector(selectFavorite);
   const [isShowModal, setIsShowModal] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
 
@@ -61,30 +68,45 @@ export const CarItem = ({ car }) => {
       <ImgWrapper>
         <IconWrapper onClick={handleFavorite}>
           {isFavorite ? (
-            <FavIcon width={18} height={18} />
+            <FavIcon width={20} height={20} />
           ) : (
-            <Icon width={18} height={18} />
+            <Icon width={20} height={20} />
           )}
         </IconWrapper>
-        <img src={img} alt={model} width="274" height="268" />
+        <CarImg src={img} alt={model} width="274" height="268" />
       </ImgWrapper>
 
-      <div>
-        <h2>
-          {make} <span>{model}</span>, {year}
-        </h2>
+      <Title>
+        <p>
+          {make} <Span>{model}</Span>, {year}
+        </p>
         <p>{rentalPrice}</p>
-      </div>
-      <div>
+      </Title>
+
+      {/* <div>
         <Details>
           {city} | {country} | {rentalCompany}
         </Details>
         <Details>
           {type} | {model} | {id} | {functionalities[0]}
         </Details>
-      </div>
+      </div> */}
 
-      <button onClick={toggleModal}>Learn more</button>
+      <DetailsWrap>
+        <DetailsList>
+          <DetailsItem>{city}</DetailsItem>
+          <DetailsItem>{country}</DetailsItem>
+          <DetailsItem>{rentalCompany}</DetailsItem>
+        </DetailsList>
+        <DetailsList>
+          <DetailsItem>{type}</DetailsItem>
+          <DetailsItem>{model}</DetailsItem>
+          <DetailsItem>{id}</DetailsItem>
+          <DetailsItem>{functionalities[0]}</DetailsItem>
+        </DetailsList>
+      </DetailsWrap>
+
+      <LearnMoreBtn toggleModal={toggleModal} />
       {isShowModal && (
         <Modal onClose={toggleModal}>
           <CarDescription car={car} onClose={toggleModal} />
