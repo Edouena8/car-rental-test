@@ -1,3 +1,4 @@
+import defaultImage from '../../assets/images/empty-image.png';
 import { CarRentalBtn } from 'components/Buttons/CarRentalBtn/CarRentalBtn';
 import {
   CarImg,
@@ -16,7 +17,7 @@ import {
 export const CarDescription = ({ car, onClose }) => {
   const {
     id,
-    img,
+    img = defaultImage,
     make,
     model,
     year,

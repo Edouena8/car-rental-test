@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const Link = styled(NavLink)`
+export const Button = styled(NavLink)`
   display: inline-block;
   padding: 12px 44px;
   margin-top: 30px;

@@ -9,7 +9,7 @@ export const AppBar = () => {
         <List>
           <li>
             <Nav to="/">
-              <FaHome /> <span>Home page</span>
+              <FaHome /> <span>Home</span>
             </Nav>
           </li>
           <li>
@@ -20,6 +20,7 @@ export const AppBar = () => {
           <li>
             <Nav to="/favorites">
               <FaHeart />
+              <span>Favorites</span>
             </Nav>
           </li>
         </List>

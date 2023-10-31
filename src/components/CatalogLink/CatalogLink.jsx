@@ -1,5 +1,5 @@
-import { Link } from './CatalogLink.styled';
+import { Button } from './CatalogLink.styled';
 
 export const CatalogLink = () => {
-  return <Link to="/catalog">Catalog</Link>;
+  return <Button to="/catalog">Catalog</Button>;
 };

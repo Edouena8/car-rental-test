@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import defaultImage from '../../assets/images/empty-image.png'
 import { Modal } from '../Modal/Modal';
 import { CarDescription } from '../CarDescription/CarDescription';
 import {
@@ -23,7 +24,7 @@ import { LearnMoreBtn } from 'components/Buttons/LearnMoreBtn/LearnMoreBtn';
 export const CarItem = ({ car }) => {
   const {
     id,
-    img,
+    img = defaultImage,
     make,
     model,
     year,
