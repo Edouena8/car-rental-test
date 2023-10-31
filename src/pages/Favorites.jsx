@@ -1,19 +1,21 @@
 import { CarsList } from 'components/CarsList/CarsList';
+import { EmptyFavList } from 'components/EmptyFavList/EmptyFavList';
+import { Title } from 'components/Title/Title';
 import { useSelector } from 'react-redux';
 import { selectFavorite } from 'redux/favorite/favoriteSelector';
 
 const Favorites = () => {
-  const {favoriteCars} = useSelector(selectFavorite);
+  const { favoriteCars } = useSelector(selectFavorite);
 
   return (
-    <div>
-      <h1>Your favorites cars</h1>
+    <>
+      <Title text="Your favorite cars" />
       {favoriteCars.length > 0 ? (
         <CarsList data={favoriteCars} />
       ) : (
-        <p>No cars yet</p>
+        <EmptyFavList/>
       )}
-    </div>
+    </>
   );
 };
 
