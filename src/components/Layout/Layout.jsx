@@ -1,23 +1,13 @@
 import { Suspense } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { Main } from './Layout.styled';
+import { AppBar } from 'components/AppBar/AppBar';
+import { Footer } from 'components/Footer/Footer';
 
 export const Layout = () => {
   return (
     <div>
-      <header>
-        <ul>
-          <li>
-            <NavLink to="/">Home page</NavLink>
-          </li>
-          <li>
-            <NavLink to="/catalog">Catalog</NavLink>
-          </li>
-          <li>
-            <NavLink to="/favorites">Favorites</NavLink>
-          </li>
-        </ul>
-      </header>
+      <AppBar />
 
       <Main>
         <Suspense fallback={<div>Loading...</div>}>
@@ -25,7 +15,7 @@ export const Layout = () => {
         </Suspense>
       </Main>
 
-      <footer>Footer</footer>
+      <Footer/>
     </div>
   );
 };

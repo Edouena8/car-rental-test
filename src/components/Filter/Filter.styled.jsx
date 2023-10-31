@@ -2,11 +2,12 @@ import styled from '@emotion/styled';
 import { NumericFormat } from 'react-number-format';
 
 export const FilterWrap = styled.form`
-  margin-bottom: 50px;
   margin: 0 auto;
+  margin-top: 50px;
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
+  text-align: left;
   flex-wrap: wrap;
   gap: 18px;
 `;
@@ -43,5 +44,3 @@ export const Input = styled(NumericFormat)`
   border: none;
   outline: none;
 `;
-
-
