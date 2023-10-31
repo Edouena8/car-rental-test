@@ -65,7 +65,7 @@ export const CarItem = ({ car }) => {
 
   return (
     <Item>
-      <ImgWrapper>
+      <ImgWrapper onClick={toggleModal}>
         <IconWrapper onClick={handleFavorite}>
           {isFavorite ? (
             <FavIcon width={20} height={20} />

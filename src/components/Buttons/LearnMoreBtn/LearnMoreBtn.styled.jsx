@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Button = styled.button`
+
   font-size: 14px;
   fonct-weight: 600;
   line-height: 1.4;
