@@ -6,6 +6,7 @@ import {
   Label,
   Mileage,
   MileageContainer,
+  MileageLabel,
   MileageWrap,
 } from './Filter.styled';
 import { SearchButton } from '../Buttons/SearchButton/SearchButton';
@@ -127,7 +128,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
         handleChange={handleChangePrice}
       />
       <MileageContainer>
-        <label htmlFor="mileage">Car mileage / km</label>
+        <MileageLabel htmlFor="mileage">Car mileage / km</MileageLabel>
         <Mileage>
           <MileageWrap>
             <Label>From</Label>
@@ -138,7 +139,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
               maxLength={6}
               decimalScale={3}
               thousandSeparator={true}
-              padding="67px"
+              padding="70px"
               value={mileageMin}
               onChange={handleChangeMileage}
             />
@@ -149,7 +150,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
             <Input
               name="mileageMax"
               id="toMileage"
-              padding="45px"
+              padding="48px"
               format="##,###"
               maxLength={6}
               decimalScale={3}

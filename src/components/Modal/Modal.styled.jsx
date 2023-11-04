@@ -7,7 +7,7 @@ export const Backdrop = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(18, 20, 23, 0.5);
+  background-color: ${p => p.theme.color.backdrop};
 `;
 
 export const ModalContent = styled.div`
@@ -19,7 +19,7 @@ export const ModalContent = styled.div`
   max-width: 541px;
   width: 100%;
   padding: 40px;
-  background-color: #fff;
+  background-color: ${p => p.theme.color.bgPrimary};
   border-radius: 24px;
 `;
 

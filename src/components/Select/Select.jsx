@@ -1,5 +1,5 @@
 import { makeUniqueCarsAndSort } from '../../helpers/makeUniqueCarsAndSort';
-import { InputSelect, SelectWrap } from './Select.styled';
+import { InputSelect, Label, SelectWrap } from './Select.styled';
 import makes from '../../makes.json';
 import { makeOptions } from '../../helpers/makeOptions';
 import { makePriceArr } from '../../helpers/makePriceArr';
@@ -18,7 +18,7 @@ export const Select = ({
 
   return (
     <SelectWrap width={width}>
-      <label htmlFor={name}>{textLabel}</label>
+      <Label htmlFor={name}>{textLabel}</Label>
       <InputSelect
         id={name}
         options={carBrand ? brandOptions : priceOptions}

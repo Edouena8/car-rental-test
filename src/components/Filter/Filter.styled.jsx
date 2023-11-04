@@ -20,7 +20,7 @@ export const MileageContainer = styled.div`
 `;
 
 export const Mileage = styled.div`
-  background-color: rgba(138, 138, 137, 0.2);
+  background-color: ${p => p.theme.colors.bgInputDark};
   display: flex;
   gap: 1px;
 
@@ -33,19 +33,35 @@ export const MileageWrap = styled.div`
   position: relative;
 `;
 
+export const MileageLabel = styled.label`
+  font-size: 14px;
+  font-weight: 500;
+  font-height: calc(18 / 14);
+  color: ${p => p.theme.colors.label};
+`;
+
 export const Label = styled.p`
+  font-size: 18px;
+  font-weight: 500;
+  font-height: calc(20 / 18);
 
   position: absolute;
   left: 24px;
   top: 15px;
+
+  color: ${p => p.theme.colors.textPrimary};
 `;
 
 export const Input = styled(NumericFormat)`
-
-  background-color: rgba(247, 247, 251, 1);
+  font-size: 18px;
+  font-weight: 500;
+  font-height: calc(20 / 18);
+  background-color: ${p => p.theme.colors.bgInputLight};
   padding-left: ${props => props.padding};
   width: 160px;
   height: 48px;
   border: none;
   outline: none;
+
+  color: ${p => p.theme.colors.textPrimary};
 `;

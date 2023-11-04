@@ -4,7 +4,7 @@ export const Button = styled.button`
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
-  color: rgba(52, 112, 255, 1);
+  color: ${p => p.theme.colors.accent};
   background-color: transparent;
   border: none;
   padding: 0;
@@ -12,6 +12,6 @@ export const Button = styled.button`
   transition: color 250ms ease-in-out;
 
   &:hover {
-    color: rgba(11, 68, 205, 1);
+    color: ${p => p.theme.colors.accentHover};
   }
 `;

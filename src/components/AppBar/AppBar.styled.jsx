@@ -6,8 +6,8 @@ export const Header = styled.header`
   top: 0;
   z-index: 10;
   align-items: center;
-  background-color: var(--accent-color);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: ${p => p.theme.colors.accent};
+  border-bottom: 1px solid ${p => p.theme.colors.borderHeader};
 `;
 
 export const Wrap = styled.div`
@@ -19,8 +19,8 @@ export const Wrap = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: #e0eff2;
-  text-shadow: 4px 4px 2px rgba(32, 32, 32, 0.6);
+  color: ${p => p.theme.colors.headerTitle};
+  text-shadow: ${p => p.theme.shadows.text};
 `;
 
 export const List = styled.ul`
@@ -29,16 +29,17 @@ export const List = styled.ul`
 
 export const Nav = styled(NavLink)`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 5px;
   padding: 15px 15px;
   cursor: pointer;
-  border-right: 1px solid #97abd7;
-  color: var(--additional-text-color);
-  transition: background-color 0.3s ease;
+  border-right: 1px solid ${p => p.theme.colors.borderNav};
+  color: ${p => p.theme.colors.textAdditional};
+  transition: background-color ${p => p.theme.transition.time}
+    ${p => p.theme.transition.cubic};
 
   &:hover {
-    background-color: var(--accent-hover);
+    background-color: ${p => p.theme.colors.accentHover};
   }
 `;

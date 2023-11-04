@@ -13,11 +13,11 @@ export const Title = styled.h2`
 
   margin-bottom: 8px;
 
-  color: rgba(18, 20, 23, 1);
+  color: ${p => p.theme.colors.textPrimary};
 `;
 
 export const Span = styled.span`
-  color: rgba(52, 112, 255, 1);
+  color: ${p => p.theme.colors.accent};
 `;
 
 export const DetailsWrap = styled.div`
@@ -39,10 +39,10 @@ export const DetailsItem = styled.li`
 
   padding: 0 6px;
   :not(:last-child) {
-    border-right: 1px solid rgba(18, 20, 23, 0.1);
+    border-right: 1px solid ${p => p.theme.colors.borderDetails};
   }
 
-  color: rgba(18, 20, 23, 0.5);
+  color: ${p => p.theme.colors.textSecondary};
 `;
 
 export const Descr = styled.p`
@@ -52,7 +52,7 @@ export const Descr = styled.p`
 
   margin-top: 14px;
 
-  color: rgba(18, 20, 23, 1);
+  color: ${p => p.theme.colors.textPrimary};
 `;
 
 export const Subtitle = styled.h3`
@@ -63,7 +63,7 @@ export const Subtitle = styled.h3`
   margin-top: 24px;
   margin-bottom: 8px;
 
-  color: rgba(18, 20, 23, 1);
+  color: ${p => p.theme.colors.textPrimary};
 `;
 
 export const ConditionsList = styled.ul`
@@ -78,12 +78,12 @@ export const ConditionsItem = styled.li`
   padding: 7px 14px;
   border-radius: 35px;
 
-  background-color: rgba(249, 249, 249, 1);
+  background-color: ${p => p.theme.colors.bgSecondary});
 `;
 
 export const ConditionsText = styled.p`
   font-size: 12px;
   font-weight: 600;
   line-height: 1.5;
-  color: rgba(54, 53, 53, 1);
+  color: ${p => p.theme.colors.textListDesc};
 `;

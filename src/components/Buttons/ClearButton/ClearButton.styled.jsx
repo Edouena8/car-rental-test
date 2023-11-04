@@ -1,6 +1,10 @@
 import styled from '@emotion/styled';
 
 export const ClearBtn = styled.button`
+  font-size: 14px;
+  font-weight: 600;
+  line-height: calc(20 / 14);
+  
   height: 48px;
   padding: 14px 44px;
   align-self: end;
@@ -8,16 +12,16 @@ export const ClearBtn = styled.button`
   cursor: pointer;
   border: none;
 
-  background-color: rgba(52, 112, 255, 1);
+  background-color: ${p => p.theme.colors.accent};
   transition: background-color 250ms ease-in-out;
-  color: #fff;
+  color: ${p => p.theme.colors.textAdditional};
 
   &:hover {
-    background-color: rgba(11, 68, 205, 1);
+    background-color: ${p => p.theme.colors.accentHover};
   }
 
   &:disabled {
-    background-color: #ddd;
+    background-color: ${p => p.theme.colors.disabled};
     cursor: not-allowed;
   }
 `;

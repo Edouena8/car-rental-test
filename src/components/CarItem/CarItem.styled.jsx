@@ -22,8 +22,7 @@ export const ImgWrapper = styled.div`
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    box-shadow: ${p => p.theme.shadows.image};
   }
 
   &::before {
@@ -58,7 +57,7 @@ export const IconWrapper = styled.div`
 export const FavIcon = styled(ActiveIcon)`
   width: 100%;
   height: 100%;
-  fill: rgba(52, 112, 255, 1);
+  color: ${p => p.theme.colors.accent};
 `;
 
 export const Icon = styled(NormalIcon)`
@@ -80,24 +79,12 @@ export const Title = styled.div`
   font-size: 16px;
   font-weight: 500;
   font-weight: 1.5;
-  color: rgba(18, 20, 23, 1);
+  color: ${p => p.theme.colors.textPrimary};
 `;
 
 export const Span = styled.span`
-  color: rgba(52, 112, 255, 1);
+  color: ${p => p.theme.colors.accent};
 `;
-
-// export const Details = styled.p`
-//   font-size: 12px;
-//   line-height: 1.5;
-//   color: rgba(18, 20, 23, 0.5);
-//   max-width: 90%;
-//   text-overflow: ellipsis;
-//   overflow: hidden;
-//   white-space: nowrap;
-//   overflow: hidden;
-//   text-align: left;
-// `;
 
 export const DetailsWrap = styled.div`
   display: flex;
@@ -119,8 +106,8 @@ export const DetailsItem = styled.li`
 
   padding: 0 6px;
   :not(:last-child) {
-    border-right: 1px solid rgba(18, 20, 23, 0.1);
+    border-right: 1px solid ${p => p.theme.colors.borderDetails};
   }
 
-  color: rgba(18, 20, 23, 0.5);
+  color: ${p => p.theme.colors.textSecondary};
 `;
