@@ -1,0 +1,21 @@
+:root {
+  --primary-color: #121417;
+  --secondary-color: #12141780;
+  --additional-text-color: #ffffff;
+
+  --label-color: #8a8a89;
+  
+
+  --select-color: #12141733;
+  --additional-color: #1214171a;
+
+  --bg-color: #ffffff;
+  --input-bg-color: #f7f7fb;
+
+  --accent-color: #3470ff;
+  --accent-hover: #0b44cd;
+
+  --condition-bg-color: #f9f9f9;
+  --condition-color: #363535;
+
+}

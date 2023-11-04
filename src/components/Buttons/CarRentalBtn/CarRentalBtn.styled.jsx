@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const Button = styled(NavLink)`
+  display: inline-block;
   height: 44px;
   padding: 12px 50px;
-  align-self: end;
   border-radius: 12px;
   cursor: pointer;
   border: none;

@@ -6,7 +6,7 @@ export const Header = styled.header`
   top: 0;
   z-index: 10;
   align-items: center;
-  background-color: rgba(52, 112, 255, 1);
+  background-color: var(--accent-color);
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 `;
 
@@ -35,12 +35,10 @@ export const Nav = styled(NavLink)`
   padding: 15px 15px;
   cursor: pointer;
   border-right: 1px solid #97abd7;
-  color: #fff;
+  color: var(--additional-text-color);
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: rgba(11, 68, 205, 1);
+    background-color: var(--accent-hover);
   }
 `;
-
-

@@ -100,7 +100,7 @@ export const CarDescription = ({ car, onClose }) => {
         </ConditionsItem>
       </ConditionsList>
 
-      <CarRentalBtn />
+      <CarRentalBtn text="RentalCar" />
     </div>
   );
 };

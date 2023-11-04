@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 export const Button = styled(NavLink)`
   display: inline-block;
   padding: 12px 44px;
-  margin-top: 30px;
   border-radius: 12px;
   border: none;
   cursor: pointer;

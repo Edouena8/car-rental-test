@@ -13,3 +13,7 @@ export const Title = styled.h2`
 export const Text = styled.p`
   margin-bottom: 5px;
 `;
+
+export const Image = styled.img`
+  margin-top: 30px;
+`;
