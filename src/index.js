@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 import { persistor, store } from './redux/store';
 import './styles/fonts.css';
-import './styles/variables.css';
 import './index.css';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from '@emotion/react';
