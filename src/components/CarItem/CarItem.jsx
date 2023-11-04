@@ -54,7 +54,8 @@ export const CarItem = ({ car }) => {
     setIsShowModal(prev => !prev);
   };
 
-  const handleFavorite = () => {
+  const handleFavorite = evt => {
+    evt.stopPropagation();
     setIsFavorite(!isFavorite);
 
     if (favoriteCars.some(favCar => favCar.id === car.id)) {

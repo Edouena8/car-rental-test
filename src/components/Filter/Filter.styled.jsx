@@ -13,6 +13,9 @@ export const FilterWrap = styled.form`
 `;
 
 export const MileageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   text-align: left;
 `;
 
@@ -31,12 +34,14 @@ export const MileageWrap = styled.div`
 `;
 
 export const Label = styled.p`
+
   position: absolute;
   left: 24px;
   top: 15px;
 `;
 
 export const Input = styled(NumericFormat)`
+
   background-color: rgba(247, 247, 251, 1);
   padding-left: ${props => props.padding};
   width: 160px;
