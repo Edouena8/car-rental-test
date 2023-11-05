@@ -12,7 +12,8 @@ export const Button = styled.button`
   border-radius: 12px;
   color: ${p => p.theme.colors.textAdditional};
   background-color: ${p => p.theme.colors.accent};
-  transition: background-color 250ms ease-in-out;
+  transition: background-color ${p => p.theme.transition.time}
+    ${p => p.theme.transition.cubic};
 
   &:hover {
     background-color: ${p => p.theme.colors.accentHover};

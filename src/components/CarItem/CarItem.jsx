@@ -4,7 +4,6 @@ import { Modal } from '../Modal/Modal';
 import { CarDescription } from '../CarDescription/CarDescription';
 import {
   CarImg,
-  // Details,
   DetailsItem,
   DetailsList,
   DetailsWrap,

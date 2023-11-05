@@ -13,7 +13,8 @@ export const SearchBtn = styled.button`
   border: none;
 
   background-color: ${p => p.theme.colors.accent};
-  transition: background-color 250ms ease-in-out;
+  transition: background-color ${p => p.theme.transition.time}
+    ${p => p.theme.transition.cubic};
   color: ${p => p.theme.colors.textAdditional};
 
   &:hover {

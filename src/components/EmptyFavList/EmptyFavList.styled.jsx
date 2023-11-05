@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Section = styled.section`
+export const EmptyWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,5 +15,13 @@ export const Text = styled.p`
 `;
 
 export const Image = styled.img`
-  margin-top: 30px;
+  max-width: 320px;
+  height: 320px;
+  margin-top: 15px;
+
+  @media screen and (min-width: 768px) {
+    width: 450px;
+    // height: 450px;
+    margin-top: 30px;
+  }
 `;

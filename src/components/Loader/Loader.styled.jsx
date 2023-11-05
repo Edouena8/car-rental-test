@@ -10,6 +10,6 @@ export const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: ${p => p.theme.colors.accent};
+  background-color: ${p => p.theme.colors.backdrop};
   z-index: 1;
 `;

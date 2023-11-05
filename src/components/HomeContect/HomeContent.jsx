@@ -1,11 +1,11 @@
 import { CarRentalBtn } from 'components/Buttons/CarRentalBtn/CarRentalBtn';
 import mainCarImage from '../../assets/images/cars2.png';
 import { CatalogLink } from 'components/Buttons/CatalogLink/CatalogLink';
-import { Text, Wrap } from './HomeContent.styled';
+import { Text, Wrap, Image } from './HomeContent.styled';
 
 export const HomeContent = () => {
   return (
-    <>
+    <div className="container">
       <Wrap>
         <Text>
           Your adventure begins here at our car rental site. Whether you're a
@@ -15,9 +15,7 @@ export const HomeContent = () => {
         </Text>
 
         <CatalogLink />
-      </Wrap>
 
-      <Wrap>
         <Text>
           Have a question or need assistance? Our dedicated service team is just
           a phone call away. We're here to help you with any inquiries, booking
@@ -26,9 +24,9 @@ export const HomeContent = () => {
         </Text>
 
         <CarRentalBtn text="ContactUs" />
-      </Wrap>
 
-      <img src={mainCarImage} alt="cars" width="1300" />
-    </>
+        <Image src={mainCarImage} alt="cars" />
+      </Wrap>
+    </div>
   );
 };

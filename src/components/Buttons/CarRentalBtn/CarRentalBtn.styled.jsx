@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 export const Button = styled(NavLink)`
   font-size: 14px;
   font-weight: 600;
-  line-height: calc(20 / 14); 
-  
+  line-height: calc(20 / 14);
+
   display: inline-block;
   height: 44px;
   padding: 12px 50px;
@@ -14,7 +14,8 @@ export const Button = styled(NavLink)`
   border: none;
 
   background-color: ${p => p.theme.colors.accent};
-  transition: background-color 250ms ease-in-out;
+  transition: background-color ${p => p.theme.transition.time}
+    ${p => p.theme.transition.cubic};
   color: ${p => p.theme.colors.textAdditional};
 
   &:hover {

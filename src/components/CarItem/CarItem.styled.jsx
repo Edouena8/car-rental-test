@@ -18,7 +18,9 @@ export const ImgWrapper = styled.div`
   margin-bottom: 14px;
   border-radius: 14px;
   cursor: pointer;
-  transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out;
+  transition: transform ${p => p.theme.transition.time}
+      ${p => p.theme.transition.cubic},
+    box-shadow ${p => p.theme.transition.time} ${p => p.theme.transition.cubic};
 
   &:hover {
     transform: scale(1.05);
@@ -46,7 +48,8 @@ export const IconWrapper = styled.div`
   right: 14px;
   width: 20px;
   height: 20px;
-  transition: transform 250ms ease-in-out;
+  transition: transform ${p => p.theme.transition.time}
+    ${p => p.theme.transition.cubic};
   cursor: pointer;
 
   &:hover {

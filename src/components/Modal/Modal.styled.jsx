@@ -7,7 +7,7 @@ export const Backdrop = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: ${p => p.theme.color.backdrop};
+  background-color: ${p => p.theme.colors.backdrop};
 `;
 
 export const ModalContent = styled.div`
@@ -19,7 +19,7 @@ export const ModalContent = styled.div`
   max-width: 541px;
   width: 100%;
   padding: 40px;
-  background-color: ${p => p.theme.color.bgPrimary};
+  background-color: ${p => p.theme.colors.bgPrimary};
   border-radius: 24px;
 `;
 
@@ -42,10 +42,11 @@ export const ModalBtn = styled.button`
 `;
 
 export const CloseModalIcon = styled(XModalIcon)`
-  stroke: #121417;
-  transition: stroke 250ms ease-in-out;
+  stroke: ${p => p.theme.colors.textPrimary};
+  transition: stroke ${p => p.theme.transition.time}
+    ${p => p.theme.transition.cubic};
 
   &:hover {
-    stroke: rgba(52, 112, 255, 1);
+    stroke: ${p => p.theme.colors.accent};
   }
 `;

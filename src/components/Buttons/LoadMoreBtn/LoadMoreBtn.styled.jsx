@@ -9,7 +9,8 @@ export const Button = styled.button`
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: color 250ms ease-in-out;
+  transition: color ${p => p.theme.transition.time}
+    ${p => p.theme.transition.cubic};
 
   &:hover {
     color: ${p => p.theme.colors.accentHover};

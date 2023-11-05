@@ -28,7 +28,7 @@ export const theme = {
   },
 
   transition: {
-    time: '0.3s',
-    cubic: 'ease',
+    time: '250ms',
+    cubic: 'ease-in-out',
   },
 };
