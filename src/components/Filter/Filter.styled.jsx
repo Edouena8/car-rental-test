@@ -46,7 +46,7 @@ export const Label = styled.p`
   font-height: calc(20 / 18);
 
   position: absolute;
-  left: 24px;
+  left: 21px;
   top: 15px;
 
   color: ${p => p.theme.colors.textPrimary};

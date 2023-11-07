@@ -139,7 +139,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
               maxLength={6}
               decimalScale={3}
               thousandSeparator={true}
-              padding="70px"
+              padding="67px"
               value={mileageMin}
               onChange={handleChangeMileage}
             />
@@ -150,7 +150,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
             <Input
               name="mileageMax"
               id="toMileage"
-              padding="48px"
+              padding="45px"
               format="##,###"
               maxLength={6}
               decimalScale={3}
