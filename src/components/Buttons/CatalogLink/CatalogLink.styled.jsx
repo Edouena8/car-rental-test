@@ -8,6 +8,7 @@ export const Button = styled(NavLink)`
   
   display: inline-block;
   padding: 12px 44px;
+  // margin-bottom: 
   border-radius: 12px;
   border: none;
   cursor: pointer;

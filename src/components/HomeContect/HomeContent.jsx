@@ -23,7 +23,7 @@ export const HomeContent = () => {
           and we're committed to providing exceptional customer support.
         </Text>
 
-        <CarRentalBtn text="ContactUs" />
+        <CarRentalBtn text="Contact Us" />
 
         <Image src={mainCarImage} alt="cars" />
       </Wrap>

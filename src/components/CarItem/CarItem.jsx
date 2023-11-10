@@ -84,15 +84,6 @@ export const CarItem = ({ car }) => {
         <p>{rentalPrice}</p>
       </Title>
 
-      {/* <div>
-        <Details>
-          {city} | {country} | {rentalCompany}
-        </Details>
-        <Details>
-          {type} | {model} | {id} | {functionalities[0]}
-        </Details>
-      </div> */}
-
       <DetailsWrap>
         <DetailsList>
           <DetailsItem>{city}</DetailsItem>

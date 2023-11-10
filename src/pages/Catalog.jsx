@@ -15,7 +15,6 @@ const Catalog = () => {
   const { cars, isLoading, currentPage } = useSelector(selectCars);
   const [showBtn, setShowBtn] = useState(true);
   const [filtering, setFiltering] = useState(false);
-  const [carsList, setCarsList] = useState([]);
   const [visibleCars, setVisisbleCars] = useState([]);
 
   const [searchParams] = useSearchParams();
@@ -59,7 +58,6 @@ const Catalog = () => {
     <>
       <Filter
         setShowBtn={setShowBtn}
-        setCarsList={setCarsList}
         setFiltering={setFiltering}
       />
 

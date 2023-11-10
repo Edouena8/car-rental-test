@@ -4,6 +4,7 @@ export const EmptyWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 40px;
 `;
 
 export const Title = styled.h2`
@@ -20,8 +21,8 @@ export const Image = styled.img`
   margin-top: 15px;
 
   @media screen and (min-width: 768px) {
-    width: 450px;
-    // height: 450px;
+    max-width: 450px;
+    height: 450px;
     margin-top: 30px;
   }
 `;

@@ -1,6 +1,5 @@
 const { createSlice } = require('@reduxjs/toolkit');
 const {
-  // fetchCarsFromFirstPage,
   fetchAllCars,
   fetchAllCarsForFilter,
 } = require('./carsOperations');
@@ -26,15 +25,6 @@ const handleRejected = (state, action) => {
     error: action.payload,
   };
 };
-
-// const handleFirstPageFulfilled = (state, action) => {
-//   return {
-//     ...state,
-//     cars: action.payload,
-//     isLoading: false,
-//     error: null,
-//   };
-// };
 
 const handleAllCarsFulfilled = (state, action) => {
   if (state.currentPage === 1) {
@@ -76,9 +66,6 @@ const carsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      // .addCase(fetchCarsFromFirstPage.pending, handlePending)
-      // .addCase(fetchCarsFromFirstPage.fulfilled, handleFirstPageFulfilled)
-      // .addCase(fetchCarsFromFirstPage.rejected, handleRejected)
       .addCase(fetchAllCars.pending, handlePending)
       .addCase(fetchAllCars.fulfilled, handleAllCarsFulfilled)
       .addCase(fetchAllCars.rejected, handleRejected)

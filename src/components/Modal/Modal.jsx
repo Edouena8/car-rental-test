@@ -5,7 +5,6 @@ import {
   ModalBtn,
   ModalContent,
 } from './Modal.styled';
-// import { ReactComponent as CloseModalIcon } from '../../assets/icons/x.svg';
 import { useEffect } from 'react';
 
 const modalRoot = document.querySelector('#modal-root');
