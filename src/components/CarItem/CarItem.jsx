@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import defaultImage from '../../assets/images/empty-image.png'
+import defaultImage from '../../assets/images/empty-image.png';
 import { Modal } from '../Modal/Modal';
 import { CarDescription } from '../CarDescription/CarDescription';
 import {

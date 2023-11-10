@@ -8,10 +8,11 @@ export const HomeContent = () => {
     <div className="container">
       <Wrap>
         <Text>
-          Your adventure begins here at our car rental site. Whether you're a
-          traveler seeking the perfect ride for your journey or a local in need
-          of reliable wheels, our platform offers everything you need for a
-          smooth and enjoyable car rental experience.
+          Access your personalized favorites page with a dedicated navigation
+          interface. Filter your favorite cars based on brand, price, and
+          mileage range. Add and remove cars from your favorites list
+          effortlessly. View contact details, including a phone number, to
+          easily get in touch with the car owner.
         </Text>
 
         <CatalogLink />

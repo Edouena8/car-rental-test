@@ -8,6 +8,7 @@ export const Button = styled.button`
   background-color: transparent;
   border: none;
   padding: 0;
+  margin-bottom: 30px;
   cursor: pointer;
   transition: color ${p => p.theme.transition.time}
     ${p => p.theme.transition.cubic};
