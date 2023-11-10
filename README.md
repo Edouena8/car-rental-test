@@ -26,9 +26,9 @@ ___
 
 ### 3. Favorites Page
 
-* Page with ads that have been added to favorites by the user
-
 ![Empty fav page](/public/readme/emptyfav.png)
+
+* Page with ads that have been added to favorites by the user
 
 ![Empty fav page](/public/readme/favlist.png)
 
