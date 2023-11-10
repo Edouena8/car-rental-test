@@ -1,46 +1,67 @@
 import { Filter } from 'components/Filter/Filter';
 import { CarsList } from 'components/CarsList/CarsList';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  fetchAllCarsForFilter,
-  fetchCarsFromFirstPage,
-} from 'redux/cars/carsOperations';
+import { fetchAllCars, fetchAllCarsForFilter } from 'redux/cars/carsOperations';
 import { useEffect } from 'react';
 import { selectCars } from 'redux/cars/carsSelectors';
 import { useState } from 'react';
 import { LoadMoreBtn } from 'components/Buttons/LoadMoreBtn/LoadMoreBtn';
-import { selectFilter } from 'redux/filter/filterSelectors';
 import { getFilteredCars } from 'helpers/getFilteredCars';
+import { useSearchParams } from 'react-router-dom';
 
 const Catalog = () => {
   const dispatch = useDispatch();
-  const { cars, isLoading } = useSelector(selectCars);
-  const filter = useSelector(selectFilter);
-  const [currentPage, setCurrentPage] = useState(1);
+
+  const { cars, isLoading, currentPage } = useSelector(selectCars);
   const [showBtn, setShowBtn] = useState(true);
   const [filtering, setFiltering] = useState(false);
+  const [carsList, setCarsList] = useState([]);
   const [visibleCars, setVisisbleCars] = useState([]);
 
+  const [searchParams] = useSearchParams();
+  const make = searchParams.get('make');
+  const rentalPrice = searchParams.get('rentalPrice');
+  const mileageMin = searchParams.get('mileageMin');
+  const mileageMax = searchParams.get('mileageMax');
+
   useEffect(() => {
-    if (currentPage === 1) {
-      dispatch(fetchCarsFromFirstPage());
-      setShowBtn(true);
-    }
+    dispatch(fetchAllCars(currentPage));
   }, [currentPage, dispatch]);
 
   useEffect(() => {
-    if (filtering) {
-      (async () => {
-        const { payload } = await dispatch(fetchAllCarsForFilter());
-        const filteredCars = await getFilteredCars(payload, filter);
-        setVisisbleCars(filteredCars);
-      })();
+    if (make || rentalPrice || mileageMin || mileageMax) {
+      setFiltering(true);
     }
-  }, [dispatch, filter, filtering]);
+  }, [make, rentalPrice, mileageMin, mileageMax]);
+
+  useEffect(() => {
+    if (filtering || make || rentalPrice || mileageMin || mileageMax) {
+      dispatch(fetchAllCarsForFilter());
+    }
+
+    // setShowBtn(false);
+  }, [make, rentalPrice, mileageMin, mileageMax, dispatch, filtering]);
+
+  useEffect(() => {
+    if (filtering) {
+      const filteredCars = getFilteredCars(cars, {
+        make,
+        rentalPrice,
+        mileageMin,
+        mileageMax,
+      });
+      setVisisbleCars(filteredCars);
+      setShowBtn(false);
+    }
+  }, [cars, filtering, make, mileageMax, mileageMin, rentalPrice]);
 
   return (
     <>
-      <Filter setShowBtn={setShowBtn} setFiltering={setFiltering} />
+      <Filter
+        setShowBtn={setShowBtn}
+        setCarsList={setCarsList}
+        setFiltering={setFiltering}
+      />
 
       {filtering ? (
         visibleCars.length > 0 ? (
@@ -52,18 +73,10 @@ const Catalog = () => {
         <CarsList data={cars} />
       )}
 
-      {!filtering &&
-        (isLoading ? (
-          <div>Loading cars...</div>
-        ) : showBtn ? (
-          <LoadMoreBtn
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            setShowBtn={setShowBtn}
-          />
-        ) : (
-          <p>The end of the list</p>
-        ))}
+      {isLoading && <div>Loading cars...</div>}
+      {showBtn && !isLoading && (
+        <LoadMoreBtn currentPage={currentPage} setShowBtn={setShowBtn} />
+      )}
     </>
   );
 };

@@ -11,44 +11,62 @@ import {
 } from './Filter.styled';
 import { SearchButton } from '../Buttons/SearchButton/SearchButton';
 import { ClearButton } from '../Buttons/ClearButton/ClearButton';
-import { useDispatch } from 'react-redux';
-import { setFilter } from 'redux/filter/filterSlice';
-import { fetchCarsFromFirstPage } from 'redux/cars/carsOperations';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { resetCurrentPage } from 'redux/cars/carsSlice';
+import { generateQueryString } from 'helpers/generateQueryString';
+import { fetchAllCars } from 'redux/cars/carsOperations';
+import { selectCars } from 'redux/cars/carsSelectors';
+import { formatingToNumber } from 'helpers/formatingNumWithComma';
 
 export const Filter = ({ setShowBtn, setFiltering }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { currentPage } = useSelector(selectCars);
+
+  const [searchParams] = useSearchParams();
+  const make = searchParams.get('make');
+  const rentalPrice = searchParams.get('rentalPrice');
+  const mileageMin = searchParams.get('mileageMin');
+  const mileageMax = searchParams.get('mileageMax');
+
+
   const [brandValue, setBrandValue] = useState({
-    value: '',
+    value: make,
     label: 'Enter the text',
   });
 
   const [priceValue, setPriceValue] = useState({
-    value: '',
+    value: rentalPrice,
     label: 'To $',
   });
 
-  const [price, setPrice] = useState('');
-  const [mileageMin, setMileageMin] = useState('');
-  const [mileageMax, setMileageMax] = useState('');
+  const currentPrice = formatingToNumber(priceValue.value);
+  // const [currentPrice, setCurrentPrice] = useState(rentalPrice);
+  const [currentMileageMin, setCurrentMileageMin] = useState(mileageMin);
+  const [currentMileageMax, setCurrentMileageMax] = useState(mileageMax);
   const [isDisabled, setIsDisabled] = useState(true);
+
+  console.log(currentPrice)
+  console.log(currentPrice);
 
   useEffect(() => {
     if (
       brandValue.label !== 'Enter the text' ||
       priceValue.label !== 'To $' ||
-      mileageMin !== '' ||
-      mileageMax !== ''
+      currentMileageMin !== null ||
+      currentMileageMax !== null
     ) {
       setIsDisabled(false);
     } else {
       setIsDisabled(true);
     }
-  }, [brandValue, mileageMax, mileageMin, priceValue]);
+  }, [brandValue, currentMileageMax, currentMileageMin, priceValue]);
 
-  const handleChangeBrand = selectedPrice => {
+  const handleChangeBrand = selectedBrand => {
     setBrandValue({
-      value: selectedPrice.value,
-      label: selectedPrice.value,
+      value: selectedBrand.value,
+      label: selectedBrand.value,
     });
   };
 
@@ -58,7 +76,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
       value: currentPrice,
       label: currentPrice,
     });
-    setPrice(selectedPrice.value);
+    // setCurrentPrice(selectedPrice.value);
   };
 
   const handleChangeMileage = evt => {
@@ -66,10 +84,10 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
 
     switch (evt.target.name) {
       case 'mileageMin':
-        setMileageMin(value);
+        setCurrentMileageMin(value);
         break;
       case 'mileageMax':
-        setMileageMax(value);
+        setCurrentMileageMax(value);
         break;
       default:
         break;
@@ -78,20 +96,32 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
 
   const handleSearchBtn = evt => {
     evt.preventDefault();
-    const newFilterObj = {
-      make: brandValue.value.toLowerCase().trim(),
-      price: price || '500',
-      mileageMin: mileageMin.split(',').join('') || '0',
-      mileageMax: mileageMax.split(',').join('') || '99999',
-    };
 
-    dispatch(setFilter(newFilterObj));
+    if (
+      make === brandValue.value &&
+      rentalPrice === currentPrice &&
+      mileageMin === currentMileageMin &&
+      mileageMax === currentMileageMax
+    ) {
+      return;
+    }
+
+    const queryString = generateQueryString({
+      make: brandValue?.value?.toLowerCase() || '',
+      rentalPrice: currentPrice,
+      mileageMin: currentMileageMin && currentMileageMin.split(',').join(''),
+      mileageMax: currentMileageMax && currentMileageMax.split(',').join(''),
+    });
+    dispatch(resetCurrentPage());
     setFiltering(true);
+    navigate(queryString ? `?${queryString}` : '');
+    setShowBtn(false);
   };
 
   const handleClearBtn = evt => {
     evt.preventDefault();
-    dispatch(fetchCarsFromFirstPage());
+    // dispatch(resetCurrentPage());
+    dispatch(fetchAllCars(currentPage));
 
     setBrandValue({
       value: '',
@@ -103,11 +133,20 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
       label: 'To $',
     });
 
-    setMileageMin('');
-    setMileageMax('');
+    setCurrentMileageMin('');
+    setCurrentMileageMax('');
 
     setFiltering(false);
     setShowBtn(true);
+
+    const queryString = generateQueryString({
+      make: null,
+      rentalPrice: null,
+      mileageMin: null,
+      mileageMax: null,
+    });
+
+    navigate(`?${queryString}`);
   };
 
   return (
@@ -140,7 +179,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
               decimalScale={3}
               thousandSeparator={true}
               padding="67px"
-              value={mileageMin}
+              value={currentMileageMin}
               onChange={handleChangeMileage}
             />
           </MileageWrap>
@@ -155,7 +194,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
               maxLength={6}
               decimalScale={3}
               thousandSeparator={true}
-              value={mileageMax}
+              value={currentMileageMax}
               onChange={handleChangeMileage}
             />
           </MileageWrap>

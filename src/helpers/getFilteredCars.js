@@ -1,13 +1,23 @@
 export const getFilteredCars = (payload, filter) => {
-  const { make, price, mileageMin, mileageMax } = filter;
+  const { make, rentalPrice, mileageMin, mileageMax } = filter;
+
+  if (
+    !make &&
+    !rentalPrice &&
+    !mileageMin &&
+    !mileageMax &&
+    payload.length === 0
+  ) {
+    return payload;
+  }
 
   const filteredByMake = make
     ? payload.filter(item => item.make.toLowerCase() === make)
     : [...payload];
 
-  const filteredByPrice = price
+  const filteredByPrice = rentalPrice
     ? filteredByMake.filter(
-        item => Number(item.rentalPrice.replace('$', '')) <= Number(price)
+        item => Number(item.rentalPrice.replace('$', '')) <= Number(rentalPrice)
       )
     : [...filteredByMake];
 
@@ -18,6 +28,6 @@ export const getFilteredCars = (payload, filter) => {
   const filteredByMileageMax = mileageMax
     ? filteredByMileageMin.filter(item => Number(item.mileage) <= mileageMax)
     : [...filteredByMileageMin];
-
+  console.log(filteredByPrice);
   return filteredByMileageMax;
 };
