@@ -1,3 +1,4 @@
+import { ThreeDots } from 'react-loader-spinner';
 import { Filter } from 'components/Filter/Filter';
 import { CarsList } from 'components/CarsList/CarsList';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +9,7 @@ import { useState } from 'react';
 import { LoadMoreBtn } from 'components/Buttons/LoadMoreBtn/LoadMoreBtn';
 import { getFilteredCars } from 'helpers/getFilteredCars';
 import { useSearchParams } from 'react-router-dom';
+import { Loader } from 'components/Loader/Loader';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -56,10 +58,7 @@ const Catalog = () => {
 
   return (
     <>
-      <Filter
-        setShowBtn={setShowBtn}
-        setFiltering={setFiltering}
-      />
+      <Filter setShowBtn={setShowBtn} setFiltering={setFiltering} />
 
       {filtering ? (
         visibleCars.length > 0 ? (
@@ -71,7 +70,10 @@ const Catalog = () => {
         <CarsList data={cars} />
       )}
 
-      {isLoading && <div>Loading cars...</div>}
+      {isLoading && (
+        
+        <Loader/>
+      )}
       {showBtn && !isLoading && (
         <LoadMoreBtn currentPage={currentPage} setShowBtn={setShowBtn} />
       )}
