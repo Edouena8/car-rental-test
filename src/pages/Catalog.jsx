@@ -1,8 +1,10 @@
-import { ThreeDots } from 'react-loader-spinner';
 import { Filter } from 'components/Filter/Filter';
 import { CarsList } from 'components/CarsList/CarsList';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllCars, fetchAllCarsForFilter } from 'redux/cars/carsOperations';
+import {
+  fetchAllCarsForFilter,
+  fetchFirstPage,
+} from 'redux/cars/carsOperations';
 import { useEffect } from 'react';
 import { selectCars } from 'redux/cars/carsSelectors';
 import { useState } from 'react';
@@ -14,7 +16,8 @@ import { Loader } from 'components/Loader/Loader';
 const Catalog = () => {
   const dispatch = useDispatch();
 
-  const { cars, isLoading, currentPage } = useSelector(selectCars);
+  const { cars, isLoading } = useSelector(selectCars);
+  const [currentPage, setCurrentPage] = useState(1);
   const [showBtn, setShowBtn] = useState(true);
   const [filtering, setFiltering] = useState(false);
   const [visibleCars, setVisisbleCars] = useState([]);
@@ -26,8 +29,12 @@ const Catalog = () => {
   const mileageMax = searchParams.get('mileageMax');
 
   useEffect(() => {
-    dispatch(fetchAllCars(currentPage));
+    if (currentPage === 1) {
+      dispatch(fetchFirstPage());
+      setShowBtn(true);
+    }
   }, [currentPage, dispatch]);
+
 
   useEffect(() => {
     if (make || rentalPrice || mileageMin || mileageMax) {
@@ -39,8 +46,6 @@ const Catalog = () => {
     if (filtering || make || rentalPrice || mileageMin || mileageMax) {
       dispatch(fetchAllCarsForFilter());
     }
-
-    // setShowBtn(false);
   }, [make, rentalPrice, mileageMin, mileageMax, dispatch, filtering]);
 
   useEffect(() => {
@@ -70,12 +75,9 @@ const Catalog = () => {
         <CarsList data={cars} />
       )}
 
-      {isLoading && (
-        
-        <Loader/>
-      )}
+      {isLoading && <Loader />}
       {showBtn && !isLoading && (
-        <LoadMoreBtn currentPage={currentPage} setShowBtn={setShowBtn} />
+        <LoadMoreBtn currentPage={currentPage} setCurrentPage={setCurrentPage} setShowBtn={setShowBtn} />
       )}
     </>
   );

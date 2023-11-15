@@ -2,11 +2,11 @@ const { createSlice } = require('@reduxjs/toolkit');
 const {
   fetchAllCars,
   fetchAllCarsForFilter,
+  fetchFirstPage,
 } = require('./carsOperations');
 
 const initialState = {
   cars: [],
-  currentPage: 1,
   isLoading: false,
   error: null,
 };
@@ -26,22 +26,19 @@ const handleRejected = (state, action) => {
   };
 };
 
+const handleFirstPageFulfilled = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+  state.cars = action.payload;
+};
+
 const handleAllCarsFulfilled = (state, action) => {
-  if (state.currentPage === 1) {
-    return {
-      ...state,
-      cars: action.payload,
-      isLoading: false,
-      error: null,
-    };
-  } else {
-    return {
-      ...state,
-      cars: [...state.cars, ...action.payload],
-      isLoading: false,
-      error: null,
-    };
-  }
+  return {
+    ...state,
+    cars: [...state.cars, ...action.payload],
+    isLoading: false,
+    error: null,
+  };
 };
 
 const handleAllFilterCarsFulfilled = (state, action) => {
@@ -56,16 +53,11 @@ const handleAllFilterCarsFulfilled = (state, action) => {
 const carsSlice = createSlice({
   name: 'cars',
   initialState,
-  reducers: {
-    incrementCurrentPage(state) {
-      state.currentPage += 1;
-    },
-    resetCurrentPage(state) {
-      state.currentPage = 1;
-    },
-  },
   extraReducers: builder => {
     builder
+      .addCase(fetchFirstPage.pending, handlePending)
+      .addCase(fetchFirstPage.fulfilled, handleFirstPageFulfilled)
+      .addCase(fetchFirstPage.rejected, handleRejected)
       .addCase(fetchAllCars.pending, handlePending)
       .addCase(fetchAllCars.fulfilled, handleAllCarsFulfilled)
       .addCase(fetchAllCars.rejected, handleRejected)

@@ -8,8 +8,10 @@ export const Wrap = styled.div`
 `;
 
 export const Main = styled.main`
-  // width: 1440px;
-  // margin: 0 auto;
-  // padding: 50px;
-  // text-align: center;
+  padding-top: 30px;
+  max-width: 1440px;
+  margin: 0px auto;
+  padding-bottom: 30px;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
 `;

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const List = styled.ul`
-  margin: 0 auto;
+  // margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   row-gap: 50px;
@@ -13,7 +13,7 @@ export const List = styled.ul`
     justify-content: start;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 100px;
+    // margin-bottom: 100px;
     column-gap: 70px;
     row-gap: 50px;
   }

@@ -11,25 +11,21 @@ import {
 } from './Filter.styled';
 import { SearchButton } from '../Buttons/SearchButton/SearchButton';
 import { ClearButton } from '../Buttons/ClearButton/ClearButton';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { resetCurrentPage } from 'redux/cars/carsSlice';
 import { generateQueryString } from 'helpers/generateQueryString';
-import { fetchAllCars } from 'redux/cars/carsOperations';
-import { selectCars } from 'redux/cars/carsSelectors';
+import { fetchFirstPage } from 'redux/cars/carsOperations';
 import { formatingToNumber } from 'helpers/formatingNumWithComma';
 
 export const Filter = ({ setShowBtn, setFiltering }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { currentPage } = useSelector(selectCars);
 
   const [searchParams] = useSearchParams();
   const make = searchParams.get('make');
   const rentalPrice = searchParams.get('rentalPrice');
   const mileageMin = searchParams.get('mileageMin');
   const mileageMax = searchParams.get('mileageMax');
-
 
   const [brandValue, setBrandValue] = useState({
     value: make,
@@ -42,20 +38,19 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
   });
 
   const currentPrice = formatingToNumber(priceValue.value);
-  // const [currentPrice, setCurrentPrice] = useState(rentalPrice);
   const [currentMileageMin, setCurrentMileageMin] = useState(mileageMin);
   const [currentMileageMax, setCurrentMileageMax] = useState(mileageMax);
   const [isDisabled, setIsDisabled] = useState(true);
 
-  console.log(currentPrice)
-  console.log(currentPrice);
+  console.log(isDisabled);
+  console.log(priceValue.label);
 
   useEffect(() => {
     if (
       brandValue.label !== 'Enter the text' ||
       priceValue.label !== 'To $' ||
-      currentMileageMin !== null ||
-      currentMileageMax !== null
+      currentMileageMin !== '' ||
+      currentMileageMax !== '' 
     ) {
       setIsDisabled(false);
     } else {
@@ -76,7 +71,6 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
       value: currentPrice,
       label: currentPrice,
     });
-    // setCurrentPrice(selectedPrice.value);
   };
 
   const handleChangeMileage = evt => {
@@ -112,7 +106,6 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
       mileageMin: currentMileageMin && currentMileageMin.split(',').join(''),
       mileageMax: currentMileageMax && currentMileageMax.split(',').join(''),
     });
-    dispatch(resetCurrentPage());
     setFiltering(true);
     navigate(queryString ? `?${queryString}` : '');
     setShowBtn(false);
@@ -120,8 +113,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
 
   const handleClearBtn = evt => {
     evt.preventDefault();
-    // dispatch(resetCurrentPage());
-    dispatch(fetchAllCars(currentPage));
+    dispatch(fetchFirstPage());
 
     setBrandValue({
       value: '',
@@ -138,6 +130,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
 
     setFiltering(false);
     setShowBtn(true);
+    // setIsDisabled(true);
 
     const queryString = generateQueryString({
       make: null,

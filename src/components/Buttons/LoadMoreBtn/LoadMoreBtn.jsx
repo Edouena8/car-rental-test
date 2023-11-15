@@ -1,16 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Button } from './LoadMoreBtn.styled';
-import { incrementCurrentPage } from 'redux/cars/carsSlice';
-import { selectCars } from 'redux/cars/carsSelectors';
+import { fetchAllCars } from 'redux/cars/carsOperations';
 
-export const LoadMoreBtn = ({ setShowBtn }) => {
+export const LoadMoreBtn = ({ currentPage, setCurrentPage, setShowBtn }) => {
   const dispatch = useDispatch();
-  const { cars, currentPage } = useSelector(selectCars);
 
-  const onLoadMore = () => {
-    dispatch(incrementCurrentPage());
-    console.log(cars.length / currentPage);
-    if (cars.length / currentPage < 12) {
+  const onLoadMore = async () => {
+    const { payload } = await dispatch(fetchAllCars(currentPage + 1));
+    setCurrentPage(prevPage => prevPage + 1);
+
+    if (payload.length < 12) {
       setShowBtn(false);
     } else {
       setShowBtn(true);

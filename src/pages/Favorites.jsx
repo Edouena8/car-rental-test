@@ -13,7 +13,7 @@ const Favorites = () => {
       {favoriteCars.length > 0 ? (
         <CarsList data={favoriteCars} />
       ) : (
-        <EmptyFavList/>
+        <EmptyFavList />
       )}
     </>
   );

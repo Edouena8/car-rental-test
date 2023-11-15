@@ -3,6 +3,7 @@ import { ReactComponent as ActiveIcon } from '../../assets/icons/heart-active.sv
 import { ReactComponent as NormalIcon } from '../../assets/icons/heart-normal.svg';
 
 export const Item = styled.li`
+  width: 274px;
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -41,6 +42,7 @@ export const ImgWrapper = styled.div`
     );
   }
 `;
+
 
 export const IconWrapper = styled.div`
   position: absolute;

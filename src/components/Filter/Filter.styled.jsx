@@ -48,6 +48,7 @@ export const Label = styled.p`
   position: absolute;
   left: 21px;
   top: 15px;
+  pointer-events: none;
 
   color: ${p => p.theme.colors.textPrimary};
 `;
