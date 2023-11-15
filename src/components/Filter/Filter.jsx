@@ -42,15 +42,13 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
   const [currentMileageMax, setCurrentMileageMax] = useState(mileageMax);
   const [isDisabled, setIsDisabled] = useState(true);
 
-  console.log(isDisabled);
-  console.log(priceValue.label);
 
   useEffect(() => {
     if (
       brandValue.label !== 'Enter the text' ||
       priceValue.label !== 'To $' ||
-      currentMileageMin !== '' ||
-      currentMileageMax !== '' 
+      (currentMileageMin !== '' && currentMileageMin !== null) ||
+      (currentMileageMax !== '' && currentMileageMax !== null)
     ) {
       setIsDisabled(false);
     } else {

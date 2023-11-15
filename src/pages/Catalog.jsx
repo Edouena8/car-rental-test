@@ -35,7 +35,6 @@ const Catalog = () => {
     }
   }, [currentPage, dispatch]);
 
-
   useEffect(() => {
     if (make || rentalPrice || mileageMin || mileageMax) {
       setFiltering(true);
@@ -77,7 +76,11 @@ const Catalog = () => {
 
       {isLoading && <Loader />}
       {showBtn && !isLoading && (
-        <LoadMoreBtn currentPage={currentPage} setCurrentPage={setCurrentPage} setShowBtn={setShowBtn} />
+        <LoadMoreBtn
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          setShowBtn={setShowBtn}
+        />
       )}
     </>
   );

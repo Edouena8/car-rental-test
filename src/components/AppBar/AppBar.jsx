@@ -1,7 +1,9 @@
+import { useLocation } from 'react-router-dom';
 import { Container, Header, List, Nav, Title, Wrap } from './AppBar.styled';
 import { FaHeart, FaHome, FaCar } from 'react-icons/fa';
 
 export const AppBar = () => {
+  const location = useLocation();
   return (
     <Header>
       <Container>
@@ -14,12 +16,12 @@ export const AppBar = () => {
               </Nav>
             </li>
             <li>
-              <Nav to="/catalog">
+              <Nav to={location.state?.from ?? '/catalog'}>
                 <FaCar /> <span>Catalog</span>
               </Nav>
             </li>
             <li>
-              <Nav to="/favorites">
+              <Nav to="/favorites" state={{ from: location }}>
                 <FaHeart />
                 <span>Favorites</span>
               </Nav>
