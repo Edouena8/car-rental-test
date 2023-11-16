@@ -2,19 +2,6 @@ import styled from '@emotion/styled';
 
 export const Button = styled.div`
   position: fixed;
-
-  //   bottom: 100px;
-  //   right: 5%;
-  //   box-shadow: 0 0 14px -5px rgba(0, 0, 0, 5);
-  //   border-radius: 100%;
-  //   width: 80px;
-  //   height: 80px;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  //   cursor: pointer;
-  //   transition: 0.5s;
-
   width: 100%;
   bottom: 100px;
   right: 5%;
