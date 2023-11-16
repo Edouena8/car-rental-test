@@ -63,7 +63,7 @@ const Catalog = () => {
 
   return (
     <>
-      <Filter setShowBtn={setShowBtn} setFiltering={setFiltering} />
+      <Filter setShowBtn={setShowBtn} setFiltering={setFiltering} setCurrentPage={setCurrentPage} />
 
       {filtering ? (
         visibleCars.length > 0 ? (
@@ -84,7 +84,7 @@ const Catalog = () => {
         />
       )}
 
-      <BackToTop/>
+      <BackToTop />
     </>
   );
 };

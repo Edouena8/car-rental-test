@@ -752,5 +752,83 @@
     "address": "456 Example Lane, Zaporizhzhia, Ukraine",
     "rentalConditions": "Minimum age: 21\nValid driver's license\nCredit card required",
     "mileage": 4570
+  },
+  {
+    "id": 4698,
+    "year": 2022,
+    "make": "Hyundai",
+    "model": "i20",
+    "type": "Hatchback",
+    "img": "https://www.standvirtual.com/blog/wp-content/uploads/2022/02/DSC08833-scaled.jpg",
+    "description": "The Hyundai Nexo is a reliable and fuel-efficient SUV that combines practicality with a stylish design and a comfortable ride.",
+    "fuelConsumption": "9.7",
+    "engineSize": "2.0L 4-cylinder",
+    "accessories": [
+      "Apple CarPlay and Android Auto integration",
+      "Blind Spot Detection",
+      "Hands-free smart liftgate"
+    ],
+    "functionalities": [
+      "Front-Wheel Drive",
+      "Hillstart Assist Control",
+      "LED headlights"
+    ],
+    "rentalPrice": "$100",
+    "rentalCompany": "Economy Car Rentals",
+    "address": "Kyiv, Ukraine",
+    "rentalConditions": "Minimum age: 21\nValid driver's license\nCredit card required",
+    "mileage": 3570
+  },
+  {
+    "id": 9540,
+    "year": 2006,
+    "make": "HUMMER",
+    "model": "H3",
+    "type": "Sedan",
+    "img": "https://rentalauto.ge/wp-content/uploads/2019/04/tbilisi-car-rent-rentalauto-1.jpg",
+    "description": "The HUMMER H3 is a rugged and powerful Sedan that stands out with its imposing presence and off-road capabilities.",
+    "fuelConsumption": "19.8",
+    "engineSize": "6.0L V8",
+    "accessories": [
+      "Heated leather seats",
+      "Bose premium sound system",
+      "Off-road package"
+    ],
+    "functionalities": [
+      "Premium sound system",
+      "Stabilitrak stability control",
+      "Tire pressure monitoring system"
+    ],
+    "rentalPrice": "$47",
+    "rentalCompany": "Adventure Car Rentals",
+    "address": "321 Example Road, Kharkiv, Ukraine",
+    "rentalConditions": "Minimum age: 21\nValid driver's license\nSecurity deposit required",
+    "mileage": 3771
+  },
+  {
+    "id": 9114,
+    "year": 2023,
+    "make": "BMW",
+    "model": "520D",
+    "type": "Automatic",
+    "img": "https://media.autoexpress.co.uk/image/private/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1603189543/autoexpress/2020/10/BMW%20M550i%20xDrive%202020%20UK-3.jpg",
+    "description": "The BMW Z8 is a classic and timeless Automatic that combines iconic retro-inspired design, outstanding performance, and luxurious comfort.",
+    "fuelConsumption": "14.2",
+    "engineSize": "4.9L V8",
+    "accessories": [
+      "Aluminum space frame",
+      "Nappa leather upholstery",
+      "Harman Kardon audio system"
+    ],
+    "functionalities": [
+      "Rear-Wheel Drive",
+      "Dynamic Stability Control",
+      "Power-operated soft-top roof"
+    ],
+    "rentalPrice": "$450",
+    "rentalCompany": "Classic Car Rentals",
+    "address": "654 Example Circle, Zaporizhzhia, Ukraine",
+    "rentalConditions": "Minimum age: 25\nValid driver's license\nSecurity deposit and proof of insurance required",
+    "mileage": 5000
   }
 ]

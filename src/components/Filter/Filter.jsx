@@ -11,14 +11,11 @@ import {
 } from './Filter.styled';
 import { SearchButton } from '../Buttons/SearchButton/SearchButton';
 import { ClearButton } from '../Buttons/ClearButton/ClearButton';
-import { useDispatch } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { generateQueryString } from 'helpers/generateQueryString';
-import { fetchFirstPage } from 'redux/cars/carsOperations';
 import { formatingToNumber } from 'helpers/formatingNumWithComma';
 
-export const Filter = ({ setShowBtn, setFiltering }) => {
-  const dispatch = useDispatch();
+export const Filter = ({ setShowBtn, setFiltering, setCurrentPage }) => {
   const navigate = useNavigate();
 
   const [searchParams] = useSearchParams();
@@ -111,7 +108,7 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
 
   const handleClearBtn = evt => {
     evt.preventDefault();
-    dispatch(fetchFirstPage());
+    setCurrentPage(1);
 
     setBrandValue({
       value: '',
@@ -128,7 +125,6 @@ export const Filter = ({ setShowBtn, setFiltering }) => {
 
     setFiltering(false);
     setShowBtn(true);
-    // setIsDisabled(true);
 
     const queryString = generateQueryString({
       make: null,

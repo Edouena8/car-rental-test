@@ -28,6 +28,6 @@ export const getFilteredCars = (payload, filter) => {
   const filteredByMileageMax = mileageMax
     ? filteredByMileageMin.filter(item => Number(item.mileage) <= mileageMax)
     : [...filteredByMileageMin];
-  console.log(filteredByPrice);
+
   return filteredByMileageMax;
 };
