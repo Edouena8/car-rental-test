@@ -12,6 +12,7 @@ import { LoadMoreBtn } from 'components/Buttons/LoadMoreBtn/LoadMoreBtn';
 import { getFilteredCars } from 'helpers/getFilteredCars';
 import { useSearchParams } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
+import { BackToTop } from 'components/Buttons/BackToTop/BackToTop';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -82,6 +83,8 @@ const Catalog = () => {
           setShowBtn={setShowBtn}
         />
       )}
+
+      <BackToTop/>
     </>
   );
 };
