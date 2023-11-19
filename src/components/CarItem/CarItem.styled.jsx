@@ -70,9 +70,18 @@ export const Icon = styled(NormalIcon)`
   height: 100%;
 `;
 
+export const ImageContainer = styled.div`
+  margin-bottom: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 274px;
+`;
+
 export const CarImg = styled.img`
-  object-fit: cover;
+  display: block;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const Title = styled.div`

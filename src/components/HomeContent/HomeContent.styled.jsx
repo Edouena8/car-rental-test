@@ -17,7 +17,8 @@ export const Text = styled.p`
   }
 `;
 
-export const Image = styled.img`
+export const ImageContainer = styled.div`
+  overflow: hidden;
   max-width: 320px;
 
   @media screen and (min-width: 768px) {
@@ -27,4 +28,13 @@ export const Image = styled.img`
   @media screen and (min-width: 1440px) {
     max-width: 1300px;
   }
+
+ 
+`;
+
+export const Image = styled.img`
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;

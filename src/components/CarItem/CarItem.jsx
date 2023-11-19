@@ -10,6 +10,7 @@ import {
   FavIcon,
   Icon,
   IconWrapper,
+  ImageContainer,
   ImgWrapper,
   Item,
   Span,
@@ -74,7 +75,9 @@ export const CarItem = ({ car }) => {
             <Icon width={20} height={20} />
           )}
         </IconWrapper>
-        <CarImg src={img} alt={model} width="274" height="268" />
+        <ImageContainer>
+          <CarImg src={img} alt={model} />
+        </ImageContainer>
       </ImgWrapper>
 
       <Title>

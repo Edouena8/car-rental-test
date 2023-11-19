@@ -1,11 +1,11 @@
 import { CarRentalBtn } from 'components/Buttons/CarRentalBtn/CarRentalBtn';
 import mainCarImage from '../../assets/images/cars2.png';
 import { CatalogLink } from 'components/Buttons/CatalogLink/CatalogLink';
-import { Text, Wrap, Image } from './HomeContent.styled';
+import { Text, Wrap, Image, ImageContainer } from './HomeContent.styled';
 
 export const HomeContent = () => {
   return (
-    <div className="container">
+    <div>
       <Wrap>
         <Text>
           Access your personalized favorites page with a dedicated navigation
@@ -26,7 +26,9 @@ export const HomeContent = () => {
 
         <CarRentalBtn text="Contact Us" />
 
-        <Image src={mainCarImage} alt="cars" />
+        <ImageContainer>
+          <Image src={mainCarImage} alt="cars" />
+        </ImageContainer>
       </Wrap>
     </div>
   );
