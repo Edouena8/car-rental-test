@@ -1,9 +1,18 @@
 import styled from '@emotion/styled';
 
-export const CarImg = styled.img`
-  object-fit: cover;
-  border-radius: 14px;
+export const ImageContainer = styled.div`
   margin-bottom: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+
+  height: 248px;
+`;
+
+export const CarImg = styled.img`
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const Title = styled.h2`

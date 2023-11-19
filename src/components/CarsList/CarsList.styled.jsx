@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
 export const List = styled.ul`
-  // margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  column-gap: 70px;
   row-gap: 50px;
   justify-content: center;
   margin-bottom: 50px;
@@ -13,9 +13,6 @@ export const List = styled.ul`
     justify-content: start;
     margin-left: auto;
     margin-right: auto;
-    // margin-bottom: 100px;
-    column-gap: 70px;
-    row-gap: 50px;
   }
 
   @media screen and (min-width: 1440px) {

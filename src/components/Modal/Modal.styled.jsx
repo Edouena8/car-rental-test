@@ -21,6 +21,15 @@ export const ModalContent = styled.div`
   padding: 40px;
   background-color: ${p => p.theme.colors.bgPrimary};
   border-radius: 24px;
+
+  @media screen and (max-width: 768px) {
+    width: 90%;
+    height: 90%;
+  }
+
+  @media screen and (max-width: 1440px) {
+    overflow-y: auto;
+  }
 `;
 
 export const ModalBtn = styled.button`

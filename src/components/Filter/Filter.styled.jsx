@@ -3,7 +3,6 @@ import { NumericFormat } from 'react-number-format';
 
 export const FilterWrap = styled.form`
   margin: 0 auto;
-  margin-top: 50px;
   margin-bottom: 50px;
   display: flex;
   justify-content: center;

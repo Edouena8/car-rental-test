@@ -12,6 +12,7 @@ import {
   ConditionsList,
   ConditionsItem,
   ConditionsText,
+  ImageContainer,
 } from './CarDescription.styled';
 
 export const CarDescription = ({ car, onClose }) => {
@@ -42,7 +43,10 @@ export const CarDescription = ({ car, onClose }) => {
 
   return (
     <div>
-      <CarImg src={img} alt={model} width="461" height="248" />
+      <ImageContainer>
+        <CarImg src={img} alt={model} width="461" height="248" />
+      </ImageContainer>
+
       <Title>
         {make} <Span>{model}</Span>, {year}
       </Title>
