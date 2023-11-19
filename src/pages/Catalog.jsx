@@ -34,7 +34,7 @@ const Catalog = () => {
       dispatch(fetchFirstPage());
       setShowBtn(true);
     }
-  }, [currentPage, dispatch]);
+  }, [filtering, currentPage, dispatch]);
 
   useEffect(() => {
     if (make || rentalPrice || mileageMin || mileageMax) {

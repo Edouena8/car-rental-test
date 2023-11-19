@@ -28,8 +28,6 @@ export const ImageContainer = styled.div`
   @media screen and (min-width: 1440px) {
     max-width: 1300px;
   }
-
- 
 `;
 
 export const Image = styled.img`
